@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- Eventos - V-ON ou (@) Fica escutando o evento que deve ser acionado para disparar o method - v-on:click ou @click="" -->
+
+<div id="app">
+  <p>Contador: {{ contador }}</p>
+  <button v-on:click="somar">Soma 1</button>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0
+    },
+    methods: {
+      somar() {
+        this.contador++
+      }
+    }
+  })
+</script>

@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- Modificadores de Eventos - Eventos de Teclado -->
+
+<div id="app">
+  <p>Contador: {{ contador }}</p>
+  <button v-on:click="somar(5, $event)">Somar</button>
+  <p v-on:mousemove="atualizarXY">
+    Mouse: X: {{ x }} e  Y: {{ y }}
+    <!-- .stop para a propagação do evento na área demarcada (JS Vanilla = event.stopPropagation()) -->
+    <span v-on:mousemove.stop="">PARAR AQUI!!!</span>
+  </p>
+  <!-- Link normal sem modificador, vai para a página informada -->
+  <a href="https://google.com">Google</a><br><br>
+  <!-- Link com o modificador .prevent (Previne o comportamento padrão do click no link, que seria ir para o site informado (JS Vanilla = event.preventDefault())) -->
+  <a v-on:click.prevent="" href="https://google.com">Google</a><br><br>
+  
+  <!-- Sempre que uma tecla for apertada no input, o método exibirAlerta será acionado -->
+  <input type="text" v-on:keyup="exibirAlerta()" placeholder="Qualquer tecla">
+  <input type="text" v-on:keyup.enter="exibirAlerta()" placeholder="Somente o Enter">
+  <input type="text" v-on:keyup.alt.enter="exibirAlerta()" placeholder="Somente o ALT e o ENTER Juntos">
+  
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0,
+      x: 0,
+      y: 0
+    },
+    methods: {
+      somar(valor, event) {
+        this.contador += valor
+        console.log(event)
+      },
+      atualizarXY(event) {
+        this.x = event.clientX
+        this.y = event.clientY
+      },
+      exibirAlerta() {
+        alert('Estou te Alertando')
+      },
+    }
+  })
+</script>

@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- Como Imprimir HTML Puro - Diretiva V-HTML -->
+
+<div id="app">
+  <p v-once>{{ titulo }}</p>
+  <p>{{ saudacao() }}</p>
+  <a v-bind:href="link">Google</a>
+  <hr>
+  <!-- Vai imprimir como texto, não vai interpretar o HTML -->
+  <p>{{ linkHtml }}</p>
+  <!-- Vai interpretar o HTML, colocando de fato o link na tela -->
+  <p v-html="linkHtml"></p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      titulo: 'Usando Vue.js',
+      link: 'https://google.com',
+      linkHtml: '<a href="https://google.com.br">Google</a>'
+    },
+    methods: {
+      saudacao() {
+        this.titulo = 'Bom dia!'
+        return this.titulo
+      }
+    }
+  })
+</script>

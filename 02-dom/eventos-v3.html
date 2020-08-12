@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- Passando nossos próprios argumentos como eventos -->
+
+<div id="app">
+  <p>Contador: {{ contador }}</p>
+  <!-- Será incrementado o valor informado como argumento do method -->
+  <!-- Se quiser de também ver o evento, precisar informar com $event -->
+  <button v-on:click="somar(5, $event)">Somar</button>
+  <p v-on:mousemove="atualizarXY">Mouse: X: {{ x }} e  Y: {{ y }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0,
+      x: 0,
+      y: 0
+    },
+    methods: {
+      // Será incrementado o valor informado no uso do method
+      somar(valor, event) {
+        this.contador += valor
+        console.log(event)
+      },
+      atualizarXY(event) {
+        this.x = event.clientX
+        this.y = event.clientY
+
+      }
+    }
+  })
+</script>
