@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Usando v-if com template -->
+
+<div id="app">
+  <!-- Utilizando a tag template, nenhum elemento é adicionado ao HTML, sendo adicionado apenas as TAGS HTML padrão -->
+  <template v-if="logado">
+    <p>Usuário Logado: {{nome}}</p>
+    <p>Perfil: Admin</p>
+  </template>
+  <p v-else-if="anonimo">Navengando como anônimo</p>
+  <p v-else>Nenhum Usuário Logado</p>
+  <button @click="logado = !logado">{{ logado ? 'Sair' : 'Logar'}}</button>
+  <input type="checkbox" v-model="anonimo">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      nome: 'Fernando',
+      logado: false,
+      anonimo: false,
+    }
+  })
+</script>

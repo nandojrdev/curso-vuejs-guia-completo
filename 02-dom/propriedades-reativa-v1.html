@@ -1,0 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- USANDO TWO-WAY-DATA-BINDING- V-MODEL -->
+<!-- As alterações ficam síncronas, o template (HTML) atualiza o dado (JavaScript) e vice-versa -->
+
+<div id="app">
+  <p>{{ titulo }}</p>
+  <input type="text" v-model="titulo">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      titulo: 'Usando Vue.js'
+    }
+  })
+</script>

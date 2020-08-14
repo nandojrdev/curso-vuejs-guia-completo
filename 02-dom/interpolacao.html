@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- INTERPOLAÇÃO -->
+<!-- Dentro da interpolação é possível passar diretamente código JS, que o mesmo será executado -->
+
+<div id="app">
+  <p>Contador: {{ contador }}</p>
+  <p>Contador > 10 ?: {{ contador > 10 ? 'É maior que 10' : 'É menor ou igual a 10' }}</p>
+  <button v-on:click="executar">Executar</button>
+
+  <p>{{ 10 + 20 + 40 }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0,
+    },
+    methods: {
+      executar() {
+        this.contador++
+      },
+    }
+  })
+</script>

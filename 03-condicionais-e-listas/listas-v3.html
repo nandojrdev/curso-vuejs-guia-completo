@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Renderizando Listas com V-FOR - Utilizando Template -->
+
+<div id="app">
+  <ul>
+    <!-- cor (variável criada para receber cada elemento do loop) cores (atributo criado dentro de data na instância do Vue) -->
+    <li v-for="cor in cores">Cor: {{ cor }}</li>
+    <hr>
+    <!-- Acessando o índice atual - Primeiro informe o valor e depois o inidice -->
+    <li v-for="(cor, index) in cores">Cor: {{ cor }} - Índice: {{ index }}</li>
+    <hr>
+  </ul>
+  <!-- Template não é renderizado na DOM -->
+  <template v-for="(cor, index) in cores">
+    <h1>{{ cor }}</h1>
+    <p>{{ index }}</p>
+  </template>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      cores: ['Vermelho', 'Verde', 'Amarelo', 'Azul'],
+      pessoas: [
+        {nome: 'Ana', idade: 26, peso: 59},
+        {nome: 'Guilherme', idade: 22, peso: 89},
+      ]
+    }
+  })
+</script>

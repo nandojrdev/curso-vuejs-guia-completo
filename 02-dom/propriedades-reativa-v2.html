@@ -1,0 +1,41 @@
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Propriedades Computadas - Computed Property -->
+<!-- Quando for chamar uma propriedade computada, não chama como método (usando () no final), chama como propriedade mesmo, sem a execução () -->
+
+<div id="app">
+  <button v-on:click="aumentar">Aumentar</button>
+  <button v-on:click="contador2++">Aumentar 2</button>
+  <button v-on:click="diminuir">Diminuir</button>
+  <p>Contador: {{ contador }} | {{ contador2 }}</p>
+  <!-- Quando for um simples method, invoca a função quando chamar -->
+  <!-- <p>Resultado: {{ resultado() }}</p> -->
+  <!-- Quando for um Computed Property, não invoca a função, apenas chama na interpolação -->
+  <p>Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0,
+      contador2: 0
+    },
+    computed: {
+      resultado() {
+        return this.contador >= 5 ? 'Maior ou Igual a 5' : 'Menor que 5'
+      }
+    },
+    methods: {
+      aumentar() {
+        this.contador++
+      },
+      diminuir() {
+        this.contador--
+      },
+      // resultado() {
+      //   return this.contador >= 5 ? 'Maior ou Igual a 5' : 'Menor que 5'
+      // }
+    }
+  })
+</script>
