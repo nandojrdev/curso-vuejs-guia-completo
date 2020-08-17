@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Sim, é possível se ter mais de uma instância do Vue no projeto, mas não é muito usual quando se usa somente o Vue no projeto. O mais comum é usar COMPONENTIZAÇÃO! -->
+
+<div id="app1">
+  {{ titulo1 }}
+</div>
+
+<div id="app2">
+  {{ titulo2 }}
+</div>
+
+<script>
+  new Vue({
+    el: '#app1',
+    data: {
+      titulo1: 'Teste'
+    }
+  })
+
+  new Vue({
+    el: '#app2',
+    data: {
+      titulo2: 'Teste 2'
+    }
+  })
+</script>

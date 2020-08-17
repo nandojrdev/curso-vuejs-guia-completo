@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<!-- Colocando $refs e usando Templates -->
+
+<div id="app">
+  <!-- Referenciando o Objeto, utiliza-se ref="nome_da_referencia", no caso de refs, não utilizamos o padrão do bind usado no Vue, que seria :ref, utilizamos somente ref mesmo -->
+  <h1 ref="aulaRef">{{ aula }}</h1>
+  <h2>{{ modulo }}</h2>
+  <button @click="alterarAula">Alterar Aula</button>
+  <button @click="alterarModulo">Alterar Módulo</button>
+
+</div>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      aula: 'Aula: Usando Refs',
+      modulo: 'Módulo: Instância Vue'
+    },
+    methods: {
+      alterarAula() {
+        this.aula += '#'
+        // Consultando o h1 que foi referenciado acima
+        console.log(this.$refs.aulaRef.innerText)
+      },
+      alterarModulo() {
+        this.modulo += '#'
+      }
+    }
+  })
+
+  // Também é possível ter acesso as referencias por fora da instancia do Vue
+  console.log(vm.$refs.aulaRef.innerText)
+</script>
